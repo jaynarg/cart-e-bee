@@ -529,7 +529,7 @@ export default function CartEBee() {
 
             {error && <div className="err">{error}</div>}
             <p className="note">
-              Recipe sites behind paywalls cannot be imported. Some large popular recipe sites (e.g. Allrecipes) may
+              Recipe sites behind paywalls cannot be imported. Some popular recipe sites (e.g. Allrecipes) may
               block Cart E. Bee. In this case, simply take a screenshot of the recipe, and upload that instead.
             </p>
           </section>
