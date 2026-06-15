@@ -351,6 +351,9 @@ export default function CartEBee() {
         .cb-bag{flex:0 0 auto;width:56px;height:56px;border-radius:15px;background:#F7C92E;
           display:grid;place-items:center;box-shadow:0 4px 14px rgba(22,21,18,.18);}
         .cb-bag svg{width:42px;height:42px;}
+        .intro{margin:2px 0 18px;}
+        .intro p{margin:0 0 10px;color:var(--ink-soft);font-size:14px;line-height:1.5;}
+        .intro p:last-child{margin:0;}
 
         .cb-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;
           padding:16px;box-shadow:0 1px 0 rgba(28,43,36,.03);}
@@ -467,6 +470,20 @@ export default function CartEBee() {
         </header>
 
         {(adding || recipes.length === 0) && (
+          <div className="intro">
+            <p>
+              Use this tool to prepare a shopping or kitchen prep list of ingredients across multiple recipes. Simply
+              upload photos from a favorite cookbook or screenshots from an online recipe (up to three at a time), or
+              paste in a URL for an online recipe, and Cart E. will do the rest!
+            </p>
+            <p>
+              Within a minute, you'll have an interactive check-box list, for which you can cross off items as you put
+              them in your grocery shopping cart or pull them off a pantry shelf.
+            </p>
+          </div>
+        )}
+
+        {(adding || recipes.length === 0) && (
           <section className="cb-panel">
             <div className="cb-row">
               <button className="btn" onClick={() => fileInput.current?.click()} disabled={files.length >= MAX_PHOTOS}>
@@ -512,8 +529,8 @@ export default function CartEBee() {
 
             {error && <div className="err">{error}</div>}
             <p className="note">
-              Photos of cookbook pages and screenshots of online recipes read most reliably. Pasted links are fetched
-              and read on the server, so those work too. Up to {MAX_PHOTOS} photos and {MAX_LINKS} links per list.
+              Recipe sites behind paywalls cannot be imported. Some large popular recipe sites (e.g. Allrecipes) may
+              block Cart E. Bee. If so, simply take a screenshot of the recipe, and upload that instead.
             </p>
           </section>
         )}
