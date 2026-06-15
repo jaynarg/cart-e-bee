@@ -297,6 +297,7 @@ export default function CartEBee() {
     setActiveTab("all");
     setAdding(true);
   }
+  // Dormant demo loader — no button is wired to it right now (kept for easy restore).
   function loadSample() {
     setRecipes(SAMPLE_RECIPES.map((r) => ({ ...r, id: uid(), ingredients: r.ingredients.map((i) => ({ ...i })) })));
     setChecked({});
@@ -521,7 +522,6 @@ export default function CartEBee() {
               <button className="btn primary" onClick={build} disabled={loading}>
                 {loading ? <><span className="spinner" /> Reading…</> : "Build list →"}
               </button>
-              <button className="btn" onClick={loadSample}>Load a sample list</button>
               {recipes.length > 0 && (
                 <button className="btn ghost" onClick={() => setAdding(false)}>Cancel</button>
               )}
@@ -530,7 +530,7 @@ export default function CartEBee() {
             {error && <div className="err">{error}</div>}
             <p className="note">
               Recipe sites behind paywalls cannot be imported. Some large popular recipe sites (e.g. Allrecipes) may
-              block Cart E. Bee. If so, simply take a screenshot of the recipe, and upload that instead.
+              block Cart E. Bee. In this case, simply take a screenshot of the recipe, and upload that instead.
             </p>
           </section>
         )}
